@@ -19,7 +19,6 @@ function Navbar(): JSX.Element {
     }
   };
 
-  console.log(user);
 
   return (
     <>

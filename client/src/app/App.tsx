@@ -13,22 +13,22 @@ import Navbar from '../page/Navbar/Navbar';
 
 
 import AuthorizationPage from '../page/Auth/AuthorizationPage';
-import type { RootState } from '../redux/store';
+// import type { RootState } from '../redux/store';
 import { useAppDispatch } from '../redux/store';
 import { Students } from './type/students';
 
 function App(): JSX.Element {
-  const user = useSelector((store: RootState) => store.auth.user);
+  // const user = useSelector((store: RootState) => store.auth.user);
   const dispatch = useAppDispatch();
 
 
 
   
 
-  // const loadStudents = async (): Promise<void> => {
-  //   const data: { students: Students } = await (await fetch('/api/students')).json();
-  //   dispatch({ type: 'students/load', payload: data.students });
-  // };
+  const loadStudents = async (): Promise<void> => {
+    const data: { students: Students } = await (await fetch('/api/students')).json();
+    dispatch({ type: 'students/load', payload: data.students });
+  };
 
   // const checkUser = async (): Promise<void> => {
   //   const data: { message: string; user: User } = await (await fetch('api/auth/check')).json();
@@ -39,9 +39,9 @@ function App(): JSX.Element {
   //   }
   // };
 
-  // useEffect(() => {
-  //   loadStudents().catch(console.log);
-  // }, []);
+  useEffect(() => {
+    loadStudents().catch(console.log);
+  }, []);
 
   // useEffect(() => {
   //   checkUser().catch(console.log);
