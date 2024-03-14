@@ -1,29 +1,21 @@
 import React, { useEffect } from 'react';
 
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 import MainPage from '../page/Main/MainPage';
 
 import Navbar from '../page/Navbar/Navbar';
 
-
-
-
-
-
-
 import AuthorizationPage from '../page/Auth/AuthorizationPage';
 // import type { RootState } from '../redux/store';
 import { useAppDispatch } from '../redux/store';
-import { Students } from './type/students';
+import type { Students } from './type/students';
+import StudentsPage from '../page/Student/StudentsPage';
 
 function App(): JSX.Element {
   // const user = useSelector((store: RootState) => store.auth.user);
   const dispatch = useAppDispatch();
-
-
-
-  
 
   const loadStudents = async (): Promise<void> => {
     const data: { students: Students } = await (await fetch('/api/students')).json();
@@ -47,11 +39,12 @@ function App(): JSX.Element {
   //   checkUser().catch(console.log);
   // }, []);
 
-
   return (
     <div className={`App`}>
       <Navbar />
       <Routes>
+        <Route path="/students" element={<StudentsPage />} />
+
         <Route path="/" element={<MainPage />} />
         {/* <Route path="/students" element={<RegistrationPage />} /> */}
         <Route path="/auth" element={<AuthorizationPage />} />
@@ -61,4 +54,3 @@ function App(): JSX.Element {
 }
 
 export default App;
-

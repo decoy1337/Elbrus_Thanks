@@ -20,6 +20,7 @@ function MainPage(): JSX.Element {
     <div className="MainPage">
       <h1>Main Page</h1>
       <div className="mapStudents">
+
         {sortedStudentsByPhase.map((student) => {
           const dispatch = useAppDispatch();
            const updateCountplus = async (id: number): Promise<void> => {
@@ -64,7 +65,6 @@ function MainPage(): JSX.Element {
           );
         })}
       </div>
-      
       <div>
         <button onClick={() => filterStudentByPhase('1')}>1 Fhase</button>
         <button onClick={() => filterStudentByPhase('2')}>2 Fhase</button>
