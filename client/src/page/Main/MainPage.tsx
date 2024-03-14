@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainPage.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
+import StudentItem from './StudentItem';
+
 function MainPage(): JSX.Element {
   const students = useSelector((store: RootState) => store.students.students);
+  
+ 
   return (
     <div className="MainPage">
       <h1>Main Page</h1>
       <div className='mapStudents'>
   {students.map((student)=>(
-    <div key={student.id}>
-    <p>{student.name}</p>
-    <p>{student.phase}</p>
-    </div>
+    <StudentItem student={student} key={student.id}/>
   ))}
       </div>
     </div>
