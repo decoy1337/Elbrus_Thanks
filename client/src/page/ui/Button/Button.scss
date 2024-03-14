@@ -1,0 +1,18 @@
+.Button {
+  cursor: pointer;
+}
+
+.delete {
+  background-color: tomato;
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.clear {
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--invert-primary-color);
+}

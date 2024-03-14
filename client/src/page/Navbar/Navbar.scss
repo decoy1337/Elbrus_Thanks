@@ -1,0 +1,31 @@
+.navbar {
+  &__container {
+    // width: 100%;
+    height: 50px;
+    background: var(--invert-bg-color);
+    padding: 10px;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 20px;
+  }
+
+  // width: 100%;
+  // height: 50px;
+  // background: var(--invert-bg-color);
+  // padding: 10px; /* Отступы внутри навбара */
+
+  // .Menu {
+  //   display: flex; /* Расположение кнопок в строку */
+  //   gap: 20px; /* Отступ между кнопками */
+  // }
+
+  // .Button:hover {
+  //   text-decoration: underline; /* Подчеркивание текста при наведении на кнопку */
+  // }
+
+  // .Button:focus {
+  //   outline: none; /* Удаление контура фокуса при нажатии на кнопку */
+  // }
+}
