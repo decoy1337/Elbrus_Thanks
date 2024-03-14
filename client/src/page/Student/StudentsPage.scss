@@ -1,0 +1,13 @@
+.studentInfo {
+  display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.StudentsPage {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
