@@ -1,5 +1,9 @@
 
+
 import type { Student, Students } from '../app/type/students';
+
+
+
 import type { User } from '../page/Auth/reducer/type';
 
 export type Action =
@@ -7,4 +11,5 @@ export type Action =
   | {type: 'students/add';payload:Student}
   | { type: 'auth/login'; payload: User }
   | { type: 'auth/logout' }
+  |{type:'student/update';payload:Student}
   

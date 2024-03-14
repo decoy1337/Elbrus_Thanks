@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+
 router.post('/', async (req, res) => {
   let student;
   try {
@@ -28,6 +29,19 @@ router.post('/', async (req, res) => {
       phase,
       count_thank,
     });
+
+router.put('/:id',async(req,res)=>{
+  try{
+    const{id}=req.params
+    const{thanks}=req.body
+    const result=await Student.update({count_thank:thanks},{where:{id}})
+    const student=await Student.findOne({where:{id}})
+ res.json({message:'success',student})
+  }catch ({ message }) {
+    res.status(500).json({ error: message });
+  }
+})
+
 
     if (student) {
       student = await Student.findOne({
