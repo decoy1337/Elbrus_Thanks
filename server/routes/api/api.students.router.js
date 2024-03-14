@@ -12,6 +12,33 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  let student;
+  try {
+    const { name, phase, count_thank } = req.body;
+    student = await Student.findOne({ where: { name, phase, count_thank } });
+    console.log(student);
+    if (student) {
+      res.status(400).json({ message: 'Такой студент уже существует' });
+      return;
+    }
 
+    student = await Student.create({
+      name,
+      phase,
+      count_thank,
+    });
+
+    if (student) {
+      student = await Student.findOne({
+        where: { id: student.id },
+      });
+      res.status(201).json({ message: 'success', student });
+    }
+    res.status(400).json();
+  } catch ({ message }) {
+    res.status(500).json({ error: message });
+  }
+});
 
 module.exports = router;

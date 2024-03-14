@@ -1,29 +1,28 @@
 /* eslint-disable @typescript-eslint/default-param-last */
 /* eslint-disable import/prefer-default-export */
 
-import { Students } from "../../../app/type/students";
-import { Action } from "../../../redux/type";
+import type { Students } from '../../../app/type/students';
+import type { Action } from '../../../redux/type';
 
 export type StudentsState = {
-    students:Students;
-    
-  };
-  export const initialState: StudentsState = {
-    students:[]
-  }
-export const mainReducer=(state:StudentsState=initialState,action:Action):StudentsState=>{
-    switch (action.type){
-        case 'students/load':
+  students: Students;
+};
+export const initialState: StudentsState = {
+  students: [],
+};
+export const mainReducer = (state: StudentsState = initialState, action: Action): StudentsState => {
+  switch (action.type) {
+    case 'students/load':
       return {
         ...state,
         students: action.payload,
       };
-      default:
+    case 'students/add':
+      return {
+        ...state,
+        students: [...state.students, action.payload],
+      };
+    default:
       return state;
-    }
-}
-
-
-
-
-
+  }
+};

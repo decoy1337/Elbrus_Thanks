@@ -8,13 +8,13 @@ function MainPage(): JSX.Element {
   return (
     <div className="MainPage">
       <h1>Main Page</h1>
-      <div className='mapStudents'>
-  {students.map((student)=>(
-    <div key={student.id}>
-    <p>{student.name}</p>
-    <p>{student.phase}</p>
-    </div>
-  ))}
+      <div className="mapStudents">
+        {students.map((student) => (
+          <div className='studentInfo' key={student.id}>
+            <p>{student.name}</p>
+            <p>{student.phase}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
