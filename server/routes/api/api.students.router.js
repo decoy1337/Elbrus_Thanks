@@ -4,7 +4,9 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   try {
-    const students = await Student.findAll();
+    const students = await Student.findAll({
+      order: [['count_thank', 'DESC']]
+    });
 
     res.status(200).json({ students });
   } catch ({ message }) {
@@ -52,5 +54,14 @@ router.put("/:id", async (req, res) => {
     res.status(500).json({ error: message });
   }
 });
+router.delete('/:id',async(req,res)=>{
+  try {
+  const {id}=req.params
+  await Student.destroy({where:{id:+id}})
+  res.json({message:'success'})
+  }catch ({ message }) {
+    res.status(500).json({ error: message });
+  }
+})
 
 module.exports = router;
