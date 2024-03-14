@@ -29,16 +29,10 @@ function Navbar(): JSX.Element {
             <NavLink to="/">Main</NavLink>
           </li>
           <li>
-            <NavLink to="/genres">Genres</NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies">Movies</NavLink>
+            <NavLink to="/students">Students</NavLink>
           </li>
           {!user ? (
             <>
-              <li>
-                <NavLink to="/registration">Sign-up</NavLink>
-              </li>
               <li>
                 <NavLink to="/auth">Sign-in</NavLink>
               </li>
