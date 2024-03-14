@@ -7,6 +7,7 @@ import { Button } from '../ui/Button/Button';
 
 function MainPage(): JSX.Element {
   const students = useSelector((store: RootState) => store.students.students);
+  const dispatch = useAppDispatch();
   
 
   const [filteredPhase, setFilteredPhase] = useState<string | null>(null);
@@ -22,7 +23,6 @@ function MainPage(): JSX.Element {
       <div className="mapStudents">
 
         {sortedStudentsByPhase.map((student) => {
-          const dispatch = useAppDispatch();
            const updateCountplus = async (id: number): Promise<void> => {
             const res = await (
               await fetch(`/api/students/${id}`, {

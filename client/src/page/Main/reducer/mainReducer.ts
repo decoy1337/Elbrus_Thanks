@@ -23,16 +23,15 @@ export const mainReducer = (state: StudentsState = initialState, action: Action)
         ...state,
         students: [...state.students, action.payload],
       };
-    default:
 
-      case 'student/update':
-        return{
-            ...state,
-            students:state.students.map((student)=>
-            student.id===action.payload.id?action.payload:student
-            )
-        }
-      default:
+    case 'student/update':
+      return {
+        ...state,
+        students: state.students.map((student) =>
+          student.id === action.payload.id ? action.payload : student,
+        ),
+      };
+    default:
       return state;
   }
 };
