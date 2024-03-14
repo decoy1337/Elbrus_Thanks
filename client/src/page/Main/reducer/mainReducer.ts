@@ -18,6 +18,13 @@ export const mainReducer=(state:StudentsState=initialState,action:Action):Studen
         ...state,
         students: action.payload,
       };
+      case 'student/update':
+        return{
+            ...state,
+            students:state.students.map((student)=>
+            student.id===action.payload.id?action.payload:student
+            )
+        }
       default:
       return state;
     }

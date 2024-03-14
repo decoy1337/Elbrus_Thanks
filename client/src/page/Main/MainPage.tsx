@@ -3,8 +3,11 @@ import './MainPage.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
+import StudentItem from './StudentItem';
+
 function MainPage(): JSX.Element {
   const students = useSelector((store: RootState) => store.students.students);
+
   const [filteredPhase, setFilteredPhase] = useState<string | null>(null)
 
   const sortedStudentsByPhase = [...students].sort((a, b) => a.phase.localeCompare(b.phase));
@@ -33,7 +36,7 @@ function MainPage(): JSX.Element {
         <button onClick={()=>filterStudentByPhase('1')}>1 Fhase</button>
         <button onClick={()=>filterStudentByPhase('2')}>2 Fhase</button>
         <button onClick={()=>filterStudentByPhase('3')}>3 Fhase</button>
-      </div>
+
     </div>
   );
 }
