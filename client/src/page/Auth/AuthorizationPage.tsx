@@ -23,7 +23,7 @@ function AuthorizationPage(): JSX.Element {
     console.log(data);
     if (data.message === 'success') {
       dispatch({ type: 'auth/login', payload: data.user });
-      navigate('/');
+      navigate('/main');
     }
   };
   return (

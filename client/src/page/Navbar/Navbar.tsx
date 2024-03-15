@@ -12,7 +12,6 @@ function Navbar(): JSX.Element {
   const logOut = async (): Promise<void> => {
     const data: { message: string } = await (await fetch('/api/auth/logout')).json();
 
-    console.log(data);
 
     if (data.message === 'success') {
       dispatch({ type: 'auth/logout' });
