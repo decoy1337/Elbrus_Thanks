@@ -31,6 +31,7 @@ function Filter({ student, updateCountplus, updateCountminus }: FilterProps): JS
   };
 
   return (
+
     <div className="studentInfo">
       <h3 className="studentName">{student.name}</h3>
       <p className="studentPhase">Фаза: {student.phase}</p>
@@ -43,6 +44,7 @@ function Filter({ student, updateCountplus, updateCountminus }: FilterProps): JS
           +
         </Button>
       </div>
+
     </div>
   );
 }

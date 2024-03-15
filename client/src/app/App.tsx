@@ -12,7 +12,8 @@ import AuthorizationPage from '../page/Auth/AuthorizationPage';
 import { useAppDispatch } from '../redux/store';
 import type { Students } from './type/students';
 import StudentsPage from '../page/Student/StudentsPage';
-import { User } from '../page/Auth/reducer/type';
+import type { User } from '../page/Auth/reducer/type';
+import ErrorPage from '../page/ErrorPage/ErrorPage';
 
 function App(): JSX.Element {
   // const user = useSelector((store: RootState) => store.auth.user);
@@ -41,14 +42,15 @@ function App(): JSX.Element {
   }, []);
 
   return (
-    <div className='App'>
+    
+    <div className="App">
       <Navbar />
       <Routes>
         <Route path="/students" element={<StudentsPage />} />
 
         <Route path="/main" element={<MainPage />} />
-        {/* <Route path="/students" element={<RegistrationPage />} /> */}
         <Route path="/" element={<AuthorizationPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

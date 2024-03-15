@@ -34,23 +34,26 @@ function StudentsPage(): JSX.Element {
             <p>{stud.name}</p>
             <p>{stud.phase}</p>
 
-            <button
-              className="btn-update"
-              onClick={() => {
-                setStudent(stud);
-                onClose((prev) => !prev);
-              }}
-            >
-              Ред.
-            </button>
-            <button onClick={() => onHadleDelete(stud.id)} className="btn-delete">
-              X
-            </button>
+            <img 
+  src="https://svgsilh.com/svg/160872.svg" 
+  alt="Edit" 
+  className="btn-update"
+  onClick={() => {
+    setStudent(stud);
+    onClose((prev) => !prev);
+  }}
+/>
+            <img 
+  src="https://svgsilh.com/svg_v2/462216.svg" 
+  alt="Delete" 
+  className="btn-delete"
+  onClick={() => onHadleDelete(stud.id)}
+/>
           </div>
         ))}
         <ModalWindow isOpen={isOpen} onClose={onClose}>
           <FormUpdate student={student} onClose={onClose} />
-          <button onClick={() => onClose((prev) => !prev)}>Закрыть форму</button>
+          <button className='closeForm' onClick={() => onClose((prev) => !prev)}>Закрыть форму</button>
         </ModalWindow>
       </div>
     </div>

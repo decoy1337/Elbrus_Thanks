@@ -1,6 +1,6 @@
 import type { SetStateAction } from 'react';
 import React, { useState } from 'react';
-
+import './FormUpdate.scss'; 
 import { useDispatch } from 'react-redux';
 import type { Student } from '../../app/type/students';
 
