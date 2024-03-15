@@ -9,14 +9,12 @@ function AuthorizationPage(): JSX.Element {
       <form>
         <input
           type="email"
-          name="email"
           placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          name="password"
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
