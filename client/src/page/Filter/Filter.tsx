@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Student } from '../../app/type/students';
+import { Button } from '../ui/Button/Button';
 
 interface FilterProps {
   student: Student;
@@ -36,8 +37,8 @@ function Filter({ student, updateCountplus, updateCountminus }: FilterProps): JS
       <p>{student.name}</p>
       <p>phase: {student.phase}</p>
       <p>Количество благодарностей: {count}</p>
-      <button onClick={handleCountplus}>+</button>
-      <button onClick={handleCountminus}>-</button>
+      <Button onClick={handleCountplus}>+</Button>
+      <Button onClick={handleCountminus}>-</Button>
     </div>
   );
 }

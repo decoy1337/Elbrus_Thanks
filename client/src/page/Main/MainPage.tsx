@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './MainPage.scss';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../redux/store';
-import { Button } from '../ui/Button/Button';
+
 import Filter from '../Filter/Filter';
 
 function MainPage(): JSX.Element {
