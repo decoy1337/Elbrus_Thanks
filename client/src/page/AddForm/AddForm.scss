@@ -1,0 +1,26 @@
+.FormMoviesAdd {
+    margin-bottom: 10px;
+  }
+  
+  .FormMoviesAdd form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .FormMoviesAdd input {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  .FormMoviesAdd button {
+    padding: 8px 15px;
+    background-color: #9c3382;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .FormMoviesAdd button:hover {
+    background-color: #8d1569;
+  }
