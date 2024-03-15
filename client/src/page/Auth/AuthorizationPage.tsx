@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { User } from './reducer/type';
+import './AuthhorizationPage.scss'
 
 function AuthorizationPage(): JSX.Element {
   const [email, setEmail] = useState('');
@@ -28,14 +29,14 @@ function AuthorizationPage(): JSX.Element {
   };
   return (
     <div>
-      <form onSubmit={onHandleSubmit}>
+      <form className='form_auth' onSubmit={onHandleSubmit}>
         <input
           type="email"
           placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        <input className='input'
           type="password"
           placeholder="password"
           value={password}

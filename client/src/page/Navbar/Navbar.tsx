@@ -30,15 +30,15 @@ function Navbar(): JSX.Element {
           ) : (
             <>
               <li>
-                <NavLink to="/main">Main</NavLink>
+                <NavLink to="/main">Спасибо</NavLink>
               </li>
               <li>
-                <NavLink to="/students">Students</NavLink>
+                <NavLink to="/students">Студенты</NavLink>
               </li>
               <li>Привет, {user?.name}</li>
               <li>
                 <Link to="/" onClick={logOut}>
-                  logout{' '}
+                  Выйти{' '}
                 </Link>
               </li>
             </>

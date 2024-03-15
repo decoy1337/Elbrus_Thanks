@@ -1,49 +1,30 @@
 
-/* Базовые стили */
 .navbar__container {
-  height: 50px;
-  background: var(--invert-bg-color);
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
+  background-color: purple;
+  color: #fff;
+  padding: 10px 20px;
 }
 
 .navbar__menu {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
 }
 
-/* Стили для мобильных устройств */
-@media (max-width: 768px) {
-  .navbar__menu {
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .navbar__container {
-    padding: 5px;
-  }
+.navbar__menu li {
+  margin-right: 20px;
 }
 
-// width: 100%;
-// height: 50px;
-// background: var(--invert-bg-color);
-// padding: 10px; /* Отступы внутри навбара */
+.navbar__menu a {
+  color: #fff;
+  text-decoration: none;
+}
 
-// .Menu {
-//   display: flex; /* Расположение кнопок в строку */
-//   gap: 20px; /* Отступ между кнопками */
-// }
+.navbar__menu a:hover {
+  text-decoration: underline;
+}
 
-// .Button:hover {
-//   text-decoration: underline; /* Подчеркивание текста при наведении на кнопку */
-// }
-
-// .Button:focus {
-//   outline: none; /* Удаление контура фокуса при нажатии на кнопку */
-// }
-
+.navbar__menu li:last-child {
+  margin-right: 0;
+}
