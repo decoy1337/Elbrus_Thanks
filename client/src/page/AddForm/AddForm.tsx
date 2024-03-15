@@ -67,7 +67,7 @@ function AddForm(): JSX.Element {
         />
         <input
           type="text"
-          placeholder="count_thank"
+          placeholder="Спасибо"
           value={count_thank}
           onChange={(e) => setCount_thank(e.target.value)}
         />

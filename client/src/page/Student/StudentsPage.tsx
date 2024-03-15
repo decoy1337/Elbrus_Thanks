@@ -32,9 +32,10 @@ function StudentsPage(): JSX.Element {
         {students.map((stud) => (
           <div className="studentInfo" key={stud.id}>
             <p>{stud.name}</p>
-            <p>{stud.phase}</p>
+            <p>Фаза: {stud.phase}</p>
 
-            <img 
+        <div className='btnsUpd'>
+        <img  
   src="https://svgsilh.com/svg/160872.svg" 
   alt="Edit" 
   className="btn-update"
@@ -49,6 +50,7 @@ function StudentsPage(): JSX.Element {
   className="btn-delete"
   onClick={() => onHadleDelete(stud.id)}
 />
+        </div>
           </div>
         ))}
         <ModalWindow isOpen={isOpen} onClose={onClose}>
