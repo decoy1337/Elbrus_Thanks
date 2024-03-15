@@ -25,7 +25,7 @@ function Navbar(): JSX.Element {
       <div className="navbar__container">
         <div className="navbar__menu">
           <li>
-            <NavLink to="/">Main</NavLink>
+            <NavLink to="/main">Main</NavLink>
           </li>
           <li>
             <NavLink to="/students">Students</NavLink>
@@ -33,7 +33,7 @@ function Navbar(): JSX.Element {
           {!user ? (
             <>
               <li>
-                <NavLink to="/auth">Sign-in</NavLink>
+                <NavLink to="/">Sign-in</NavLink>
               </li>
             </>
           ) : (

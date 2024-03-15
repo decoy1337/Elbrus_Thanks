@@ -14,4 +14,5 @@ export type Action =
   | { type: 'auth/logout' }
   |{type:'student/update';payload:Student}
   |{type:'students/remove';payload:StudentId}
+  |{type:'auth/userCheck';payload:User}
   
