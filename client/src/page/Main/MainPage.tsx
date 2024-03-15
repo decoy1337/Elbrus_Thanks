@@ -50,6 +50,12 @@ function MainPage(): JSX.Element {
   return (
     <div className="MainPage">
       <h1>Main Page</h1>
+      <div>
+        <button onClick={() => filterStudentByPhase(null)}>All Phase</button>
+        <button onClick={() => filterStudentByPhase('1')}>Phase 1</button>
+        <button onClick={() => filterStudentByPhase('2')}>Phase 2</button>
+        <button onClick={() => filterStudentByPhase('3')}>Phase 3</button>
+      </div>
       <div className="mapStudents">
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         {sortedStudentsByPhase.map((student) => (
@@ -61,12 +67,7 @@ function MainPage(): JSX.Element {
           />
         ))}
       </div>
-      <div>
-        <button onClick={() => filterStudentByPhase(null)}>All Phase</button>
-        <button onClick={() => filterStudentByPhase('1')}>Phase 1</button>
-        <button onClick={() => filterStudentByPhase('2')}>Phase 2</button>
-        <button onClick={() => filterStudentByPhase('3')}>Phase 3</button>
-      </div>
+     
     </div>
   );
 }
