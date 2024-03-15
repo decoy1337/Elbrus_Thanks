@@ -7,9 +7,9 @@ const configJWT = require('../../middleware/configJWT');
 router.post('/authorization', async (req, res) => {
   let user;
   try {
-    const { login, password } = req.body;
+    const { email, password } = req.body;
 
-    user = await User.findOne({ where: { login } });
+    user = await User.findOne({ where: {email } });
     if (!user) {
       res.json({ message: 'Такого пользователя нет или пароль неверный' });
       return;
@@ -21,7 +21,7 @@ router.post('/authorization', async (req, res) => {
     }
     user = await User.findOne({
       where: { id: user.id },
-      attributes: ['login', 'id', 'name'],
+      attributes: [ 'id', 'name'],
     });
 
     const { accessToken, refreshToken } = generateTokens({ user });
@@ -41,44 +41,6 @@ router.post('/authorization', async (req, res) => {
   }
 });
 
-router.post('/registration', async (req, res) => {
-  let user;
-  try {
-    const { login, email, name, password, rpassword } = req.body;
-
-    if (password !== rpassword) {
-      res.json({ message: 'Пароли не совпадают!' });
-      return;
-    }
-    user = await User.findOne({ where: { login } });
-    if (user) {
-      res.json({ message: 'Такой пользователь уже есть!' });
-      return;
-    }
-    const hash = await bcrypt.hash(password, 10);
-    user = await User.create({ name, login, email, password: hash });
-
-    user = await User.findOne({
-      where: { id: user.id },
-      attributes: ['login', 'id', 'name'],
-    });
-
-    const { accessToken, refreshToken } = generateTokens({ user });
-    res.locals.user = user;
-    res
-      .cookie(configJWT.access.type, accessToken, {
-        maxAge: configJWT.access.expiresIn,
-        httpOnly: true,
-      })
-      .cookie(configJWT.refresh.type, refreshToken, {
-        maxAge: configJWT.refresh.expiresIn,
-        httpOnly: true,
-      })
-      .json({ message: 'success', user });
-  } catch ({ message }) {
-    res.json({ message });
-  }
-});
 
 router.get('/check', async (req, res) => {
   console.log(res.locals);
