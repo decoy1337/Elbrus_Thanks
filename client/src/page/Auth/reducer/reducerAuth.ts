@@ -20,6 +20,12 @@ const authReducer = (state: StateAuth = stateAuth, action: Action): StateAuth =>
         ...state,
         user: undefined,
       };
+      case 'auth/userCheck':
+      return {
+        ...state,
+        user: action.payload,
+      };
+
     default:
       return state;
   }
