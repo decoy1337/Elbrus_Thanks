@@ -1,0 +1,83 @@
+.StudentsPage {
+    padding: 20px;
+  }
+  
+  .StudentsPage h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .mapStudents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .studentInfo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: aliceblue;
+  }
+  
+  .studentInfo p {
+    margin: 0;
+  }
+  
+  .btn-update, .btn-delete {
+    background-color: #a8176c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .btn-update:hover, .btn-delete:hover {
+    background-color: #eb49d5;
+  }
+  
+  .modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+   
+    
+    background-color: rgba(10, 10, 10, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #52215c;
+    padding: 40px;
+    border-radius: 5px;
+    
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .modal-buttons button {
+    margin-right: 10px;
+  }
+
+  .closeForm{
+        background-color: #a897ac;
+    align-items: center;
+    border-radius: 5px;
+    
+  }
+  .btn-delete{
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    margin-left: 10px;
+  }
+
+ 

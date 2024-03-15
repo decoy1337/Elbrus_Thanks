@@ -1,5 +1,5 @@
 'use strict';
-
+const bcrypt=require('bcrypt')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -7,7 +7,7 @@ module.exports = {
     {
     name: "Prepod",
     email:"Prepod@mail.ru",
-    password:"123"
+    password:await bcrypt.hash('123',10)
     
    }
   ]

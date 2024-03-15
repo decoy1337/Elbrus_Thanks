@@ -12,43 +12,33 @@ function Navbar(): JSX.Element {
   const logOut = async (): Promise<void> => {
     const data: { message: string } = await (await fetch('/api/auth/logout')).json();
 
-    console.log(data);
-
     if (data.message === 'success') {
       dispatch({ type: 'auth/logout' });
     }
   };
 
-  console.log(user);
-
   return (
     <>
       <div className="navbar__container">
         <div className="navbar__menu">
-          <li>
-            <NavLink to="/">Main</NavLink>
-          </li>
-          <li>
-            <NavLink to="/genres">Genres</NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies">Movies</NavLink>
-          </li>
           {!user ? (
             <>
               <li>
-                <NavLink to="/registration">Sign-up</NavLink>
-              </li>
-              <li>
-                <NavLink to="/auth">Sign-in</NavLink>
+                <NavLink to="/">Sign-in</NavLink>
               </li>
             </>
           ) : (
             <>
+              <li>
+                <NavLink to="/main">Спасибо</NavLink>
+              </li>
+              <li>
+                <NavLink to="/students">Студенты</NavLink>
+              </li>
               <li>Привет, {user?.name}</li>
               <li>
                 <Link to="/" onClick={logOut}>
-                  logout{' '}
+                  Выйти{' '}
                 </Link>
               </li>
             </>

@@ -9,11 +9,6 @@ const stateAuth: StateAuth = {
 
 const authReducer = (state: StateAuth = stateAuth, action: Action): StateAuth => {
   switch (action.type) {
-    case 'auth/registration':
-      return {
-        ...state,
-        user: action.payload,
-      };
     case 'auth/login':
       return {
         ...state,
@@ -25,8 +20,7 @@ const authReducer = (state: StateAuth = stateAuth, action: Action): StateAuth =>
         ...state,
         user: undefined,
       };
-
-    case 'auth/userCheck':
+      case 'auth/userCheck':
       return {
         ...state,
         user: action.payload,
