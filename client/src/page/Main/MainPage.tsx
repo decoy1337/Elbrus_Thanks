@@ -11,7 +11,9 @@ function MainPage(): JSX.Element {
   const [name, setName] = useState('');
   const [filteredPhase, setFilteredPhase] = useState<string | null>(null);
 
-  const filtrStudents = students.filter((student) => student.name.toLowerCase().includes(name.toLowerCase()));
+  const filtrStudents = students.filter((student) =>
+    student.name.toLowerCase().includes(name.toLowerCase()),
+  );
 
   const sortedStudentsByPhase = [...filtrStudents]
     .filter((student) => !filteredPhase || student.phase === filteredPhase)
@@ -49,25 +51,26 @@ function MainPage(): JSX.Element {
 
   return (
     <div className="MainPage">
-      <h1>Main Page</h1>
-      <div>
-        <button onClick={() => filterStudentByPhase(null)}>All Phase</button>
-        <button onClick={() => filterStudentByPhase('1')}>Phase 1</button>
-        <button onClick={() => filterStudentByPhase('2')}>Phase 2</button>
-        <button onClick={() => filterStudentByPhase('3')}>Phase 3</button>
+      <h1>It's Thanks Time!</h1>
+      <div className='btnsPhase'>
+        <button className='phaseBtn' onClick={() => filterStudentByPhase(null)}>Все</button>
+        <button className='phaseBtn' onClick={() => filterStudentByPhase('1')}>Фаза 1</button>
+        <button className='phaseBtn' onClick={() => filterStudentByPhase('2')}>Фаза 2</button>
+        <button className='phaseBtn' onClick={() => filterStudentByPhase('3')}>Фаза 3</button>
       </div>
       <div className="mapStudents">
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className='searchInput' placeholder='Найти' type="text" value={name} onChange={(e) => setName(e.target.value)} />
         {sortedStudentsByPhase.map((student) => (
-          <Filter
-            key={student.id}
-            student={student}
-            updateCountplus={updateCountplus}
-            updateCountminus={updateCountminus}
-          />
+          <div>
+            <Filter
+              key={student.id}
+              student={student}
+              updateCountplus={updateCountplus}
+              updateCountminus={updateCountminus}
+            />
+          </div>
         ))}
       </div>
-     
     </div>
   );
 }
