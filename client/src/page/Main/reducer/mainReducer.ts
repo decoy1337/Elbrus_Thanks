@@ -31,11 +31,20 @@ export const mainReducer = (state: StudentsState = initialState, action: Action)
           student.id === action.payload.id ? action.payload : student,
         ),
       };
-      case 'students/remove':{
-        return{
-            ...state,
-            students: state.students.filter((student) => student.id !== action.payload),
-        }
+
+    case 'student/updateName':
+      return {
+        ...state,
+        students: state.students.map((student) =>
+          student.id === action.payload.id ? action.payload : student,
+        ),
+      };
+
+    case 'students/remove': {
+      return {
+        ...state,
+        students: state.students.filter((student) => student.id !== action.payload),
+      };
     }
     default:
       return state;
