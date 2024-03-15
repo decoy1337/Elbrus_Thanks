@@ -12,6 +12,7 @@ import AuthorizationPage from '../page/Auth/AuthorizationPage';
 import { useAppDispatch } from '../redux/store';
 import type { Students } from './type/students';
 import StudentsPage from '../page/Student/StudentsPage';
+import { User } from '../page/Auth/reducer/type';
 
 function App(): JSX.Element {
   // const user = useSelector((store: RootState) => store.auth.user);
@@ -22,22 +23,22 @@ function App(): JSX.Element {
     dispatch({ type: 'students/load', payload: data.students });
   };
 
-  // const checkUser = async (): Promise<void> => {
-  //   const data: { message: string; user: User } = await (await fetch('api/auth/check')).json();
-  //   console.log(data);
+  const checkUser = async (): Promise<void> => {
+    const data: { message: string; user: User } = await (await fetch('api/auth/check')).json();
+    console.log(data);
 
-  //   if (data.message === 'success') {
-  //     dispatch({ type: 'auth/userCheck', payload: data.user });
-  //   }
-  // };
+    if (data.message === 'success') {
+      dispatch({ type: 'auth/userCheck', payload: data.user });
+    }
+  };
 
   useEffect(() => {
     loadStudents().catch(console.log);
   }, []);
 
-  // useEffect(() => {
-  //   checkUser().catch(console.log);
-  // }, []);
+  useEffect(() => {
+    checkUser().catch(console.log);
+  }, []);
 
   return (
     <div className={`App`}>
@@ -45,9 +46,9 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/students" element={<StudentsPage />} />
 
-        <Route path="/" element={<MainPage />} />
+        <Route path="/main" element={<MainPage />} />
         {/* <Route path="/students" element={<RegistrationPage />} /> */}
-        <Route path="/auth" element={<AuthorizationPage />} />
+        <Route path="/" element={<AuthorizationPage />} />
       </Routes>
     </div>
   );

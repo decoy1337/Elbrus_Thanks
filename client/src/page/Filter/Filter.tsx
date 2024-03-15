@@ -7,7 +7,7 @@ interface FilterProps {
   student: Student;
   updateCountplus: (id: number, count: number) => void;
   updateCountminus: (id: number, count: number) => void;
-
+}
 
 function Filter({ student, updateCountplus, updateCountminus }: FilterProps): JSX.Element {
   const [count, setCount] = useState(() => {
