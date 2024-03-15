@@ -41,7 +41,7 @@ function App(): JSX.Element {
   }, []);
 
   return (
-    <div className={`App`}>
+    <div className='App'>
       <Navbar />
       <Routes>
         <Route path="/students" element={<StudentsPage />} />

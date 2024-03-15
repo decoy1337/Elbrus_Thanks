@@ -12,23 +12,15 @@ function Navbar(): JSX.Element {
   const logOut = async (): Promise<void> => {
     const data: { message: string } = await (await fetch('/api/auth/logout')).json();
 
-
     if (data.message === 'success') {
       dispatch({ type: 'auth/logout' });
     }
   };
 
-
   return (
     <>
       <div className="navbar__container">
         <div className="navbar__menu">
-          <li>
-            <NavLink to="/main">Main</NavLink>
-          </li>
-          <li>
-            <NavLink to="/students">Students</NavLink>
-          </li>
           {!user ? (
             <>
               <li>
@@ -37,6 +29,12 @@ function Navbar(): JSX.Element {
             </>
           ) : (
             <>
+              <li>
+                <NavLink to="/main">Main</NavLink>
+              </li>
+              <li>
+                <NavLink to="/students">Students</NavLink>
+              </li>
               <li>Привет, {user?.name}</li>
               <li>
                 <Link to="/" onClick={logOut}>
