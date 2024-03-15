@@ -1,31 +1,29 @@
-.navbar {
-  &__container {
-    // width: 100%;
-    height: 50px;
-    background: var(--invert-bg-color);
-    padding: 10px;
-  }
+.navbar__container {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+}
 
-  &__menu {
-    display: flex;
-    gap: 20px;
-  }
+.navbar__menu {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+}
 
-  // width: 100%;
-  // height: 50px;
-  // background: var(--invert-bg-color);
-  // padding: 10px; /* Отступы внутри навбара */
+.navbar__menu li {
+  margin-right: 20px;
+}
 
-  // .Menu {
-  //   display: flex; /* Расположение кнопок в строку */
-  //   gap: 20px; /* Отступ между кнопками */
-  // }
+.navbar__menu a {
+  color: #fff;
+  text-decoration: none;
+}
 
-  // .Button:hover {
-  //   text-decoration: underline; /* Подчеркивание текста при наведении на кнопку */
-  // }
+.navbar__menu a:hover {
+  text-decoration: underline;
+}
 
-  // .Button:focus {
-  //   outline: none; /* Удаление контура фокуса при нажатии на кнопку */
-  // }
+.navbar__menu li:last-child {
+  margin-right: 0;
 }

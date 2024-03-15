@@ -35,7 +35,7 @@ function Filter({ student, updateCountplus, updateCountminus }: FilterProps): JS
 
   return (
     <div>
-      <p>{student.name}</p>
+      <p className='studentName'>{student.name}</p>
       <p>phase: {student.phase}</p>
       <p>Количество благодарностей: {count}</p>
       <Button onClick={handleCountplus}>+</Button>
